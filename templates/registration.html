@@ -1,0 +1,506 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y2B - AIESEC in Egypt</title>
+    
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/y2b.png' %}">
+    <link rel="icon" type="image/png" sizes="64x64" href="{% static 'img/y2b.png' %}">
+    <link rel="icon" type="image/png" sizes="128x128" href="{% static 'img/y2b.png' %}">
+
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}"><img class="Logo" src="{% static 'img/Logo.png' %}" alt="Y2B Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">HOME</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">AGENDA</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">SPEAKERS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#register">REGISTER</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Landing Section -->
+  <div class="landing">
+    <div class="overlay1"></div>
+    <div class="text-left content">
+      <span class="y2b">Y2B</span>
+      <h1>Where Ambition Meets Opportunity!</h1>
+      <h3>03 May 2025 <br> Greek Campus <br>260 L.E</h3>
+      <div class="btns">
+        <a href="#register"><button class="btn btn-primary Tickets Landing-btn">TICKETS</button></a>
+        <a href="#info"><button class="btn btn-primary More-info Landing-btn">MORE INFO</button></a>
+      </div> 
+    </div>
+  </div>
+
+  <!-- Event Timer -->
+  <div class="event-timer">
+    <h1>EVENT STARTS IN</h1>
+    <div class="time-box">
+      <div class="time"><h2 id="days">00</h2><p>DAYS</p></div>
+      <div class="time"><h2 id="hours">00</h2><p>HOURS</p></div>
+      <div class="time"><h2 id="minutes">00</h2><p>MINUTES</p></div>
+      <div class="time"><h2 id="seconds">00</h2><p>SECONDS</p></div>
+    </div>
+    <div class="info">
+      <i class="fa-solid fa-calendar"></i><p>3rd of May, 2025</p>
+      <i class="fa-solid fa-location-dot"></i><p>Greek Campus, Egypt</p>
+      <i class="fa-solid fa-ticket"></i><p>260 L.E</p>
+    </div>
+    <a href="#register"><button class="btn btn-primary Tickets Landing-btn">BUY TICKET</button></a>
+  </div>
+
+  <!-- About Section -->
+  <div class="container about" id="info">
+    <div class="row">
+      <div class="about-words col-6 text-right">
+        <h1>Why to be?</h1>
+        <p>Step into a world of culture, connection, and discovery! Experience vibrant traditions through immersive workshops, interactive exhibitions, and electrifying performances. Engage in meaningful cross-cultural dialogues that expand your perspective and ignite new possibilities.</p>
+      </div>
+      <div class="about-image col-6">
+        <img src="{% static 'img/KORY1093.jpg' %}" alt="About Image">
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const video = document.getElementById("eventVideo");
+        const overlay = document.getElementById("videoOverlay");
+        const playButton = document.getElementById("playButton");
+
+        // Play video & hide overlay when button is clicked
+        playButton.addEventListener("click", function () {
+            if (video.paused) {
+                video.play();
+                overlay.style.display = "none";
+            }
+        });
+
+        // Show overlay again when video is paused manually
+        video.addEventListener("pause", function () {
+            overlay.style.display = "flex";
+        });
+
+        // Show overlay again when video ends
+        video.addEventListener("ended", function () {
+            overlay.style.display = "flex";
+        });
+    });
+</script>
+
+<div class="scroll-container">
+    <div class="scroll-content" id="scrollText">
+        GET YOUR TICKET • GET YOUR TICKET • GET YOUR TICKET • GET YOUR TICKET • GET YOUR TICKET • GET YOUR TICKET • GET YOUR TICKET • GET YOUR TICKET • GET YOUR TICKET • GET YOUR TICKET • GET YOUR TICKET •
+    </div>
+</div>
+
+  <!-- Registration Section -->
+  <section class="registration-container" id="register">
+    <div class="registration-content">
+      <div class="registration-image">
+        <img id="first-pic" src="{% static 'assets/KORY1361.jpg' %}" alt="Y2B Event">
+        <img id="second-pic" src="{% static 'assets/KORY1103.jpg' %}" alt="Y2B Event">
+        <img id="third-pic" src="{% static 'assets/KORY1074.jpg' %}" alt="Y2B Event">
+      </div>
+      <div class="form-container">
+        <h2 class="custom">Event Registration</h2>
+        <form method="POST">
+            {% csrf_token %}
+        
+            <div class="form-group-full" >
+                <input type="text" name="full_name" placeholder="Full Name" required>
+                <span class="error-message"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="number" name="age" placeholder="Age" required>
+                <input type="text" name="phone_number" placeholder="Phone Number" required>
+                <span class="error-message"></span>
+            </div>
+            
+            <div class="form-group-full">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+        
+            <div class="form-group">
+                <select name="university" required>
+                    <option value="" disabled selected>University</option>
+                    <option value="Ain Shams University">Ain Shams University</option>
+                    <option value="Alexandria University">Alexandria University</option>
+                    <option value="Al-Azhar University">Al-Azhar University</option>
+                    <option value="AUC">AUC</option>
+                    <option value="AAST Aswan">AAST Aswan</option>
+                    <option value="AAST Port Said">AAST Port Said</option>
+                    <option value="AAST in Alexandria">AAST in Alexandria</option>
+                    <option value="AAST in Cairo University">AAST in Cairo University</option>
+                    <option value="Assiut University">Assiut University</option>
+                    <option value="Badr University in Cairo">Badr University in Cairo</option>
+                    <option value="Benha University">Benha University</option>
+                    <option value="Beni Suef University">Beni Suef University</option>
+                    <option value="BUE">BUE</option>
+                    <option value="Cairo University">Cairo University</option>
+                    <option value="Chinese University in Egypt">Chinese University in Egypt</option>
+                    <option value="Coventry University Egypt">Coventry University Egypt</option>
+                    <option value="Delta University for Science and Technology">Delta University for Science and Technology</option>
+                    <option value="Delta Academy">Delta Academy</option>
+                    <option value="Damietta University">Damietta University</option>
+                    <option value="Egyptian Russian University">Egyptian Russian University</option>
+                    <option value="Egyptian Aviation Academy">Egyptian Aviation Academy</option>
+                    <option value="El Obour Academy For Engineering And Technology">El Obour Academy For Engineering And Technology</option>
+                    <option value="ESLSCA University Egypt">ESLSCA University Egypt</option>
+                    <option value="Fayoum University">Fayoum University</option>
+                    <option value="FUE">FUE</option>
+                    <option value="Galala University">Galala University</option>
+                    <option value="GUC">GUC</option>
+                    <option value="Higher Institute of Engineering and Technology in New Damietta">Higher Institute of Engineering and Technology in New Damietta</option>
+                    <option value="Higher Technological Institute - (HTI) 10th of Ramadan">Higher Technological Institute - (HTI) 10th of Ramadan</option>
+                    <option value="Higher Technological Institute 6th October">Higher Technological Institute 6th October</option>
+                    <option value="Helwan University">Helwan University</option>
+                    <option value="Heliopolis University for Sustainable Development">Heliopolis University for Sustainable Development</option>
+                    <option value="Horus University">Horus University</option>
+                    <option value="IAEMS University">IAEMS University</option>
+                    <option value="Kafr El-Sheikh University">Kafr El-Sheikh University</option>
+                    <option value="Luxor University">Luxor University</option>
+                    <option value="Mansoura University">Mansoura University</option>
+                    <option value="Menofia University">Menofia University</option>
+                    <option value="Minia University">Minia University</option>
+                    <option value="MIU">MIU</option>
+                    <option value="MUST">MUST</option>
+                    <option value="Modern Academy in Maadi">Modern Academy in Maadi</option>
+                    <option value="MSA">MSA</option>
+                    <option value="MTI">MTI</option>
+                    <option value="Nahda University">Nahda University</option>
+                    <option value="New Giza University">New Giza University</option>
+                    <option value="New Cairo Academy">New Cairo Academy</option>
+                    <option value="New Mansoura University">New Mansoura University</option>
+                    <option value="Nile University">Nile University</option>
+                    <option value="Nile Academy">Nile Academy</option>
+                    <option value="October 6 University">October 6 University</option>
+                    <option value="Pharos University in Alexandria">Pharos University in Alexandria</option>
+                    <option value="Port Said University">Port Said University</option>
+                    <option value="Sadat Academy for Management Sciences">Sadat Academy for Management Sciences</option>
+                    <option value="Sohag University">Sohag University</option>
+                    <option value="South Valley University">South Valley University</option>
+                    <option value="Suez Canal University">Suez Canal University</option>
+                    <option value="Suez University">Suez University</option>
+                    <option value="Tanta University">Tanta University</option>
+                    <option value="University of Canada in Egypt">University of Canada in Egypt</option>
+                    <option value="University of Sadat City">University of Sadat City</option>
+                    <option value="UFE">UFE</option>
+                    <option value="University of Science and Technology at Zewail City">University of Science and Technology at Zewail City</option>
+                    <option value="Zagazig University">Zagazig University</option>
+                </select>
+        
+                <select name="major" required>
+                    <option value="" selected disabled>Major</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Actuarial Science">Actuarial Science</option>
+                    <option value="Advertising">Advertising</option>
+                    <option value="Aerospace Engineering">Aerospace Engineering</option>
+                    <option value="Agricultural Engineering">Agricultural Engineering</option>
+                    <option value="Anthropology">Anthropology</option>
+                    <option value="Applied Arts">Applied Arts</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Artificial Intelligence">Artificial Intelligence</option>
+                    <option value="Automotive Engineering">Automotive Engineering</option>
+                    <option value="Banking & Finance">Banking & Finance</option>
+                    <option value="Biochemistry">Biochemistry</option>
+                    <option value="Bioinformatics">Bioinformatics</option>
+                    <option value="Biotechnology">Biotechnology</option>
+                    <option value="Biomedical Engineering">Biomedical Engineering</option>
+                    <option value="Business Administration">Business Administration</option>
+                    <option value="Chemical Engineering">Chemical Engineering</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Communication Engineering">Communication Engineering</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Construction Engineering">Construction Engineering</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="Dentistry">Dentistry</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Education">Education</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Electronics Engineering">Electronics Engineering</option>
+                    <option value="Energy Engineering">Energy Engineering</option>
+                    <option value="Environmental Science">Environmental Science</option>
+                    <option value="Fashion Design">Fashion Design</option>
+                    <option value="Film & Media Studies">Film & Media Studies</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Food Science">Food Science</option>
+                    <option value="Game Development">Game Development</option>
+                    <option value="Geology">Geology</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="History">History</option>
+                    <option value="Hospitality & Tourism">Hospitality & Tourism</option>
+                    <option value="Human Resource Management">Human Resource Management</option>
+                    <option value="Industrial Engineering">Industrial Engineering</option>
+                    <option value="Information Systems">Information Systems</option>
+                    <option value="Interior Design">Interior Design</option>
+                    <option value="International Business">International Business</option>
+                    <option value="International Relations">International Relations</option>
+                    <option value="Journalism">Journalism</option>
+                    <option value="Law">Law</option>
+                    <option value="Linguistics">Linguistics</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Mechatronics Engineering">Mechatronics Engineering</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Microbiology">Microbiology</option>
+                    <option value="Music">Music</option>
+                    <option value="Nanotechnology">Nanotechnology</option>
+                    <option value="Nursing">Nursing</option>
+                    <option value="Nutrition & Dietetics">Nutrition & Dietetics</option>
+                    <option value="Optometry">Optometry</option>
+                    <option value="Petroleum Engineering">Petroleum Engineering</option>
+                    <option value="Pharmaceutical Sciences">Pharmaceutical Sciences</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Philosophy">Philosophy</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Political Science">Political Science</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Public Health">Public Health</option>
+                    <option value="Renewable Energy">Renewable Energy</option>
+                    <option value="Robotics">Robotics</option>
+                    <option value="Social Work">Social Work</option>
+                    <option value="Sociology">Sociology</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Sports Management">Sports Management</option>
+                    <option value="Statistics">Statistics</option>
+                    <option value="Supply Chain Management">Supply Chain Management</option>
+                    <option value="Teacher Education">Teacher Education</option>
+                    <option value="Telecommunications Engineering">Telecommunications Engineering</option>
+                    <option value="Theater & Performing Arts">Theater & Performing Arts</option>
+                    <option value="Translation & Interpretation">Translation & Interpretation</option>
+                    <option value="Urban Planning">Urban Planning</option>
+                    <option value="Veterinary Medicine">Veterinary Medicine</option>
+                    <option value="Visual Arts">Visual Arts</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <select name="city" required>
+                    <option value="" selected disabled>City</option>
+                    <option value="Alexandria">Alexandria</option>
+                    <option value="Aswan">Aswan</option>
+                    <option value="Asyut">Asyut</option>
+                    <option value="Beheira">Beheira</option>
+                    <option value="Beni Suef">Beni Suef</option>
+                    <option value="Cairo">Cairo</option>
+                    <option value="Dakahlia">Dakahlia</option>
+                    <option value="Damietta">Damietta</option>
+                    <option value="Faiyum">Faiyum</option>
+                    <option value="Gharbia">Gharbia</option>
+                    <option value="Giza">Giza</option>
+                    <option value="Ismailia">Ismailia</option>
+                    <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+                    <option value="Luxor">Luxor</option>
+                    <option value="Matrouh">Matrouh</option>
+                    <option value="Minya">Minya</option>
+                    <option value="Menofia">Menofia</option>
+                    <option value="New Valley">New Valley</option>
+                    <option value="North Sinai">North Sinai</option>
+                    <option value="Port Said">Port Said</option>
+                    <option value="Qalyubia">Qalyubia</option>
+                    <option value="Qena">Qena</option>
+                    <option value="Red Sea">Red Sea</option>
+                    <option value="Sharqia">Sharqia</option>
+                    <option value="Sohag">Sohag</option>
+                    <option value="South Sinai">South Sinai</option>
+                    <option value="Suez">Suez</option>
+                </select>
+        
+                <select name="is_aiesecer" required>
+                    <option value="" disabled selected>Are you an AIESECer?</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        
+            <div class="form-group-full">
+                <input type="text" name="topics_interested" placeholder="What topics would you like to be discussed in the event?" required>
+            </div>
+        
+            <div class="form-group-full">
+                <select name="how_did_you_hear" required>
+                    <option value="" disabled selected>How did you hear about the event?</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Twitter/X">Twitter/X</option>
+                    <option value="TikTok">TikTok</option>
+                    <option value="Email Newsletter">Email Newsletter</option>
+                    <option value="Friend">Friend</option>
+                    <option value="AIESEC Member">AIESEC Member</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        
+            <button class="submit-btn" type="submit">Register</button>
+        </form>
+        
+
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+
+
+  <!-- Copyright Footer Bar -->
+  <div class="footer-copyright">
+    <img src="{% static 'assets/powered-by-White-Blue.png' %}" alt="AIESEC Logo" class="footer-logo">
+
+    <p>Copyright © 2025 All rights reserved | Powered by AIESEC in Egypt<br>Made with 🤍 by Ibraheem Nassar & Muhammed Essam</p>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/all.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("registrationForm");
+        const inputs = form.querySelectorAll("input, select");
+    
+        form.addEventListener("submit", function (event) {
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                const errorMessage = input.nextElementSibling;
+                if (!input.checkValidity()) {
+                    input.style.borderColor = "red";
+                    errorMessage.textContent = "This field is required!";
+                    errorMessage.style.display = "block";
+                    isValid = false;
+                } else {
+                    input.style.borderColor = "#ccc";
+                    errorMessage.textContent = "";
+                    errorMessage.style.display = "none";
+                }
+            });
+    
+            if (!isValid) {
+                event.preventDefault(); // Stop form submission if validation fails
+            }
+        });
+    
+        // Live validation while typing/selecting
+        inputs.forEach(input => {
+            input.addEventListener("input", function () {
+                const errorMessage = input.nextElementSibling;
+                if (input.checkValidity()) {
+                    input.style.borderColor = "#ccc";
+                    errorMessage.textContent = "";
+                    errorMessage.style.display = "none";
+                }
+            });
+        });
+    });
+    </script>
+    
+    
+  <script>
+    // JavaScript Infinite Scroll Effect
+    const scrollContainer = document.querySelector('.scroll-container');
+    const scrollContent = document.getElementById('scrollText');
+
+    // Duplicate the content to ensure seamless scrolling
+    scrollContent.innerHTML += scrollContent.innerHTML;
+
+    let scrollAmount = 0;
+
+    function scrollText() {
+        scrollAmount -= 2; // Adjust speed (higher = faster)
+        if (Math.abs(scrollAmount) >= scrollContent.clientWidth / 2) {
+            scrollAmount = 0; // Reset position when halfway through
+        }
+        scrollContent.style.transform = `translateX(${scrollAmount}px)`;
+        requestAnimationFrame(scrollText);
+    }
+
+    scrollText();
+    
+    
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const album = document.getElementById("album");
+        const photos = Array.from(album.children);
+        
+        album.addEventListener("click", function () {
+            let firstPhoto = photos.shift();
+            photos.push(firstPhoto);
+            
+            photos.forEach((photo, index) => {
+                photo.style.zIndex = photos.length - index;
+            });
+        });
+        
+        photos.forEach((photo, index) => {
+            photo.style.zIndex = photos.length - index;
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    let currentIndex = 0;
+    const images = document.querySelectorAll(".registration-image img");
+
+    function nextImage() {
+        if (images.length === 0) return;
+
+        // Remove "active" class from the current image
+        images[currentIndex].classList.remove("active");
+
+        // Move to the next image
+        currentIndex = (currentIndex + 1) % images.length;
+
+        // Add "active" class to the next image
+        images[currentIndex].classList.add("active");
+    }
+
+    // Ensure the first image is active initially
+    images[currentIndex].classList.add("active");
+
+    // Automatically change image every 3 seconds
+    setInterval(nextImage, 1000);
+});
+
+
+</script>
+    
+</body>
+</html>
