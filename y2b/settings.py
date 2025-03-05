@@ -145,15 +145,14 @@ USE_TZ = True
 
 # URL to use when referring to static files (where they will be served from)
 
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Static Files Configuration
 STATIC_URL = '/static/'
 
 # Tell Django where to look for static files in development
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    os.path.join(BASE_DIR, "static"),  # ✅ Correct for Python 3.5
 ]
 
 # In production, collect static files here
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
