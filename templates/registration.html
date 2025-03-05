@@ -28,22 +28,40 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'home' %}"><img class="Logo" src="{% static 'img/Logo.png' %}" alt="Y2B Logo"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">HOME</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">AGENDA</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">SPEAKERS</a></li>
-          <li class="nav-item"><a class="nav-link" href="#register">REGISTER</a></li>
-        </ul>
-      </div>
+        <!-- Logo -->
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img class="Logo" src="{% static 'img/Logo.png' %}" alt="Y2B Logo" style="max-height: 50px;">
+        </a>
+
+        <!-- Toggler Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'home' %}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">AGENDA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SPEAKERS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#register">REGISTER</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
+
+
 
   <!-- Landing Section -->
   <div class="landing">
@@ -375,6 +393,16 @@
   </section>
 
   <!-- Footer Section -->
+  <section class="partner-with-us">
+    <div class="partner-content">
+        <h2>Want to Partner With Us?</h2>
+        <p>Join us in making a difference! Partner with us to gain visibility, expand your network, and create meaningful impact.</p>
+       <a href="https://aiesec.org.eg/partner.html" target="_blank">
+        <button  class="partner-btn">Become a Partner</button>
+       </a> 
+    
+    </div>
+</section>
 
 
   <!-- Copyright Footer Bar -->
