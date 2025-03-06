@@ -27,6 +27,19 @@
 
 </head>
 <body>
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function() {
+            const preloader = document.getElementById("preloader");
+            preloader.classList.add("fade-out");
+            setTimeout(() => {
+                preloader.style.display = "none";
+            }, 800);
+        });
+    </script>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
@@ -36,10 +49,7 @@
         </a>
 
         <!-- Toggler Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
 
         <!-- Navbar Content -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -69,7 +79,7 @@
     <div class="text-left content">
       <span class="y2b">Y2B</span>
       <h1>Where Ambition Meets Opportunity!</h1>
-      <h3>03 May 2025 <br> Greek Campus <br>260 L.E</h3>
+      <h3>03 May 2025  <br>300 L.E</h3>
       <div class="btns">
         <a href="#register"><button class="btn btn-primary Tickets Landing-btn">TICKETS</button></a>
         <a href="#info"><button class="btn btn-primary More-info Landing-btn">MORE INFO</button></a>
@@ -79,7 +89,9 @@
 
   <!-- Event Timer -->
   <div class="event-timer">
-    <h1>EVENT STARTS IN</h1>
+    <h1 style="
+    margin-top: 80px;
+">EVENT STARTS IN</h1>
     <div class="time-box">
       <div class="time"><h2 id="days">00</h2><p>DAYS</p></div>
       <div class="time"><h2 id="hours">00</h2><p>HOURS</p></div>
@@ -88,8 +100,7 @@
     </div>
     <div class="info">
       <i class="fa-solid fa-calendar"></i><p>3rd of May, 2025</p>
-      <i class="fa-solid fa-location-dot"></i><p>Greek Campus, Egypt</p>
-      <i class="fa-solid fa-ticket"></i><p>260 L.E</p>
+      <i class="fa-solid fa-ticket"></i><p>300 L.E</p>
     </div>
     <a href="#register"><button class="btn btn-primary Tickets Landing-btn">BUY TICKET</button></a>
   </div>
@@ -149,7 +160,7 @@
       <div class="form-container">
         <h2 class="custom">Event Registration</h2>
         <form method="POST">
-            {% csrf_token %}
+                        {% csrf_token %}
         
             <div class="form-group-full" >
                 <input type="text" name="full_name" placeholder="Full Name" required>
@@ -325,7 +336,7 @@
                 </select>
             </div>
         
-            <div class="form-group">
+            <div class="form-group-full">
                 <select name="city" required>
                     <option value="" selected disabled>City</option>
                     <option value="Alexandria">Alexandria</option>
@@ -357,13 +368,14 @@
                     <option value="Suez">Suez</option>
                 </select>
         
-                <select name="is_aiesecer" required>
-                    <option value="" disabled selected>Are you an AIESECer?</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                </select>
+
             </div>
-        
+            <div class="form-group-full">
+              <select name="is_aiesecer" required>
+                <option value="" disabled selected>Are you an AIESECer?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>          </div>
             <div class="form-group-full">
                 <input type="text" name="topics_interested" placeholder="What topics would you like to be discussed in the event?" required>
             </div>
@@ -383,7 +395,7 @@
                 </select>
             </div>
         
-            <button class="submit-btn" type="submit">Register</button>
+            <button class="submit-btn" type="submit">Register & Pay</button>
         </form>
         
 

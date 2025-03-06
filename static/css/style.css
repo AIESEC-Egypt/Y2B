@@ -92,7 +92,6 @@ nav.navbar{
     align-items: center;
     text-align: center;
     flex-direction: column;
-    margin-top:100px;
 }
 
 
@@ -632,7 +631,7 @@ video {
 ::placeholder {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    color: #666; /* Adjust color if needed */
+    color: #333; /* Adjust color if needed */
 }
 /* Remove focus outline and border on input and select fields */
 input:focus, select:focus, textarea:focus {
@@ -959,7 +958,6 @@ nav.navbar {
 .event-timer {
     width: 100%;
     text-align: center;
-    margin-top: 80px;
 }
 
 .event-timer h1 {
@@ -1466,7 +1464,6 @@ nav.navbar{
     align-items: center;
     text-align: center;
     flex-direction: column;
-    margin-top:100px;
 }
 
 
@@ -1970,6 +1967,8 @@ video {
     border: none;
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
+    color: #333;
+
 
 }
 
@@ -1985,12 +1984,13 @@ video {
     border: none;
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
+    color: #333;
 
 }
 ::placeholder {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    color: #666; /* Adjust color if needed */
+    color: #333; /* Adjust color if needed */
 }
 /* Remove focus outline and border on input and select fields */
 input:focus, select:focus, textarea:focus {
@@ -2313,7 +2313,6 @@ nav.navbar {
 .event-timer {
     width: 100%;
     text-align: center;
-    margin-top: 80px;
 }
 
 .event-timer h1 {
@@ -2538,6 +2537,7 @@ nav.navbar {
 
     /* HERO SECTION */
     .landing {
+        min-height: 100vh;
         padding: 20px;
         text-align: center;
     }
@@ -2600,9 +2600,18 @@ nav.navbar {
 
     /* REGISTRATION FORM */
     .registration-content {
+        width: 125%;
         flex-direction: column;
     }
+    .form-group input, .form-group select {
+        margin-bottom: 10px;
 
+    
+    }
+    
+    .form-group-full {
+        margin-bottom: 20px;
+    }
     .form-container {
         width: 90%;
     }
@@ -2751,4 +2760,66 @@ nav.navbar {
     .navbar-brand img {
         max-height: 40px;
     }
+}
+
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:  linear-gradient(to left
+, #154659, #1F6A73)rgba(31, 106, 115, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    z-index: 1000;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.content-payment{
+    margin: 0% 0% 0% 0;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    margin-top: 60px;
+    }
+.content-payment span{
+    font-family: 'BeautifulPeople', cursive;
+    font-size: 80px;
+
+    }
+    @media (max-width: 768px) {
+        .content-payment span{
+    font-size: 50px;
+    }
+.Landing-btn{
+    width: 40%;
+    height: 100%;
+}
 }
