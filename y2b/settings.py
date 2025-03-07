@@ -89,15 +89,16 @@ WSGI_APPLICATION = 'y2b.wsgi.application'
 
 if DEVELOPMENT_MODE:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'y2b_db',
-            'USER': 'mokhles',
-            'PASSWORD': 'mcathregypt19',
-            'HOST': 'localhost',
-            'PORT': ''
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'y2b',
+        'USER': 'mokhles',
+        'PASSWORD': 'mcathregypt19',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
+}
+
 else:
    DATABASES = {
     'default': {
