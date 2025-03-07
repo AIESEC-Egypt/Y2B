@@ -37,7 +37,7 @@ nav.navbar{
     margin: 10% 10% 10% 0;
 }
 .landing {
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     color: white;
     padding: 40px 0px 30px 100px;
@@ -77,7 +77,7 @@ nav.navbar{
 
 .overlay1 {
     position: absolute;
-    bottom: 0;
+    bottom: 73;
     left: 0;
     width: 100%;
     height: 100%; 
@@ -902,7 +902,7 @@ nav.navbar {
 
 /* Hero Section */
 .landing {
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     color: white;
     display: flex;
@@ -1392,7 +1392,7 @@ nav.navbar{
     margin: 10% 10% 10% 0;
 }
 .landing {
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     color: white;
     padding: 40px 0px 30px 100px;
@@ -1449,7 +1449,7 @@ nav.navbar{
 }
 .overlay1 {
     position: absolute;
-    bottom: 0;
+    bottom: 65;
     left: 0;
     width: 100%;
     height: 100%; 
@@ -2257,7 +2257,7 @@ nav.navbar {
 
 /* Hero Section */
 .landing {
-    height: 100vh;
+    height: 85vh;
     width: 100%;
     color: white;
     display: flex;
@@ -2537,7 +2537,7 @@ nav.navbar {
 
     /* HERO SECTION */
     .landing {
-        min-height: 100vh;
+        min-height: 50vh;
         padding: 20px;
         text-align: center;
     }
@@ -2818,8 +2818,63 @@ nav.navbar {
         .content-payment span{
     font-size: 50px;
     }
-.Landing-btn{
-    width: 40%;
-    height: 100%;
 }
+
+.price-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.early-bird {
+    background: rgb(88, 165, 103);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.price-box {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.7s ease-in-out, transform 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: rgb(255, 122, 122);
+    margin-right: 10px;
+    opacity: 0.7;
+    font-size: 1em;
+}
+
+.new-price {
+    color: #ff6868;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.empty-space {
+    display: none; /* Hide empty sections */
 }

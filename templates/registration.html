@@ -4,9 +4,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Y2B - AIESEC in Egypt</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Y2B - Youth to Business</title>
+    <meta name="description" content="Join Youth to Business (Y2B) Egypt 2025, powered by AIESEC in Egypt, on May 3rd! Connect with top business leaders, explore career opportunities, and engage in workshops that empower youth to shape the future of leadership and innovation.">
+
+    <meta property="og:title" content="Y2B - Youth to Business">
+<meta property="og:description" content="Join Youth to Business (Y2B) Egypt 2025, powered by AIESEC in Egypt, on May 3rd! Connect with top business leaders, explore career opportunities, and engage in workshops that empower youth to shape the future of leadership and innovation.">
+<meta property="og:image" content="https://youth2business.aiesec.org.eg/static/img/y2b.png">
+<meta property="og:url" content="https://youth2business.aiesec.org.eg">
+<meta property="og:type" content="website">
+
     <!-- Bootstrap & FontAwesome -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
@@ -58,13 +65,13 @@
                     <a class="nav-link active" href="{% url 'home' %}">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">AGENDA</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">SPEAKERS</a>
+                    <a class="nav-link" href="#info">ABOUT</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#register">REGISTER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#partner">PARTNER WITH US</a>
                 </li>
             </ul>
         </div>
@@ -75,11 +82,22 @@
 
   <!-- Landing Section -->
   <div class="landing">
-    <div class="overlay1"></div>
     <div class="text-left content">
       <span class="y2b">Y2B</span>
       <h1>Where Ambition Meets Opportunity!</h1>
-      <h3>03 May 2025  <br>300 L.E</h3>
+      <h3>03 May 2025</h3>
+      <div class="price-container">
+        
+   <!-- <a href="#offer"> <span class="early-bird">
+            💰 Click for Early Bird Offer
+        </span></a>-->
+    </div>
+    
+
+        
+            
+    
+    
       <div class="btns">
         <a href="#register"><button class="btn btn-primary Tickets Landing-btn">TICKETS</button></a>
         <a href="#info"><button class="btn btn-primary More-info Landing-btn">MORE INFO</button></a>
@@ -98,10 +116,14 @@
       <div class="time"><h2 id="minutes">00</h2><p>MINUTES</p></div>
       <div class="time"><h2 id="seconds">00</h2><p>SECONDS</p></div>
     </div>
-    <div class="info">
+    <div class="info" id="offer">
       <i class="fa-solid fa-calendar"></i><p>3rd of May, 2025</p>
-      <i class="fa-solid fa-ticket"></i><p>300 L.E</p>
-    </div>
+      <i class="fa-solid fa-ticket"></i>
+      <p>
+          <del style="color: #ff6868; opacity: 0.7; margin-right: 8px;">300 L.E</del> 
+          <span >240 L.E</span>
+      </p>
+          </div>
     <a href="#register"><button class="btn btn-primary Tickets Landing-btn">BUY TICKET</button></a>
   </div>
 
@@ -155,11 +177,16 @@
       <div class="registration-image">
         <img id="first-pic" src="{% static 'assets/KORY1361.jpg' %}" alt="Y2B Event">
         <img id="second-pic" src="{% static 'assets/KORY1103.jpg' %}" alt="Y2B Event">
-        <img id="third-pic" src="{% static 'assets/KORY1074.jpg' %}" alt="Y2B Event">
+        <img id="third-pic" src="{% static 'assets/KORY1317.jpg' %}" alt="Y2B Event">
+        <img id="fourth-pic" src="{% static 'assets/KORY1331.jpg' %}" alt="Y2B Event">
+        <img id="fifth-pic" src="{% static 'assets/KORY1416.jpg' %}" alt="Y2B Event">
+        <img id="sixth-pic" src="{% static 'assets/KORY1452.jpg' %}" alt="Y2B Event">
+        <img id="seventh-pic" src="{% static 'assets/KORY1624.jpg' %}" alt="Y2B Event">
+        <img id="eighth-pic" src="{% static 'assets/KORY1074.jpg' %}" alt="Y2B Event">
       </div>
       <div class="form-container">
         <h2 class="custom">Event Registration</h2>
-        <form method="POST">
+        <form id="registrations" method="POST">
                         {% csrf_token %}
         
             <div class="form-group-full" >
@@ -394,8 +421,10 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
-        
-            <button class="submit-btn" type="submit">Register & Pay</button>
+            <div class="form-group-full">
+                <input type="text" name="promo" placeholder="Promo Code - If you have one -">
+            </div>
+            <button type="submit" id="registerBtn" class="submit-btn">Register & Pay</button>
         </form>
         
 
@@ -405,7 +434,7 @@
   </section>
 
   <!-- Footer Section -->
-  <section class="partner-with-us">
+  <section class="partner-with-us" id="partner">
     <div class="partner-content">
         <h2>Want to Partner With Us?</h2>
         <p>Join us in making a difference! Partner with us to gain visibility, expand your network, and create meaningful impact.</p>
@@ -421,8 +450,17 @@
   <div class="footer-copyright">
     <img src="{% static 'assets/powered-by-White-Blue.png' %}" alt="AIESEC Logo" class="footer-logo">
 
-    <p>Copyright © 2025 All rights reserved | Powered by AIESEC in Egypt<br>Made with 🤍 by Ibraheem Nassar & Muhammed Essam</p>
-
+    <p style="color: white;">
+        Copyright © 2025 All rights reserved | Powered by AIESEC in Egypt<br>
+        Made with 🤍 by 
+        <a href="https://www.linkedin.com/in/ibraheem-a-nassar-92682520a/" target="_blank" style="color: white; text-decoration: underline; font-weight: bold;">
+            Ibraheem Nassar
+        </a> & 
+        <a href="https://www.linkedin.com/in/muhamed-essam-9a8983247/" target="_blank" style="color: white; text-decoration: underline; font-weight: bold;">
+            Muhammed Essam
+        </a>
+    </p>
+    
   </div>
 
   <!-- JavaScript -->
@@ -541,6 +579,29 @@
 
 
 </script>
+
+<script>
+    document.getElementById("registrations").addEventListener("submit", function(event) {
+        event.preventDefault();  // Stop normal form submission
+    
+        let formData = new FormData(this);
+    
+        fetch("", {  // Send data to the current URL (home view)
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = "/thank-you/";  // ✅ Redirect to thank-you page
+            } else {
+                alert("Something went wrong. Please try again!");
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+    </script>
+    
+    
     
 </body>
 </html>
