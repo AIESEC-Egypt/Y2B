@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Registration(models.Model):
     AIESECER_CHOICES = [
@@ -30,6 +31,8 @@ class Registration(models.Model):
     how_did_you_hear = models.CharField(max_length=50, choices=SOURCE_CHOICES, blank=True, null=True)
     promo = models.TextField(blank=True, null=True)
 
+    # ✅ TEMPORARY: Allow NULL for Migration Step
+    timestamp = models.DateTimeField(default=timezone.now, null=True, blank=True)
 
     def __str__(self):
         return self.full_name if self.full_name else "No Name Provided"

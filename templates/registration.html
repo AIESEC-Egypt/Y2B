@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Y2B - Youth to Business</title>
-    <meta name="description" content="Join Youth to Business (Y2B) Egypt 2025, powered by AIESEC in Egypt, on May 3rd! Connect with top business leaders, explore career opportunities, and engage in workshops that empower youth to shape the future of leadership and innovation.">
+    <meta name="description" content="Join Youth to Business (Y2B) Egypt 2025, powered by AIESEC in Egypt, on May 2nd! Connect with top business leaders, explore career opportunities, and engage in workshops that empower youth to shape the future of leadership and innovation.">
 
     <meta property="og:title" content="Y2B - Youth to Business">
-<meta property="og:description" content="Join Youth to Business (Y2B) Egypt 2025, powered by AIESEC in Egypt, on May 3rd! Connect with top business leaders, explore career opportunities, and engage in workshops that empower youth to shape the future of leadership and innovation.">
+<meta property="og:description" content="Join Youth to Business (Y2B) Egypt 2025, powered by AIESEC in Egypt, on May 2nd! Connect with top business leaders, explore career opportunities, and engage in workshops that empower youth to shape the future of leadership and innovation.">
 <meta property="og:image" content="https://youth2business.aiesec.org.eg/static/img/y2b.png">
 <meta property="og:url" content="https://youth2business.aiesec.org.eg">
 <meta property="og:type" content="website">
@@ -85,7 +85,7 @@
     <div class="text-left content">
       <span class="y2b">Y2B</span>
       <h1>Where Ambition Meets Opportunity!</h1>
-      <h3>03 May 2025</h3>
+      <h3>02 May 2025</h3>
       <div class="price-container">
         
    <!-- <a href="#offer"> <span class="early-bird">
@@ -117,7 +117,7 @@
       <div class="time"><h2 id="seconds">00</h2><p>SECONDS</p></div>
     </div>
     <div class="info" id="offer">
-      <i class="fa-solid fa-calendar"></i><p>3rd of May, 2025</p>
+      <i class="fa-solid fa-calendar"></i><p>2nd of May, 2025</p>
       <i class="fa-solid fa-ticket"></i>
       <p>
           <del style="color: #ff6868; opacity: 0.7; margin-right: 8px;">300 L.E</del> 
@@ -424,8 +424,10 @@
             <div class="form-group-full">
                 <input type="text" name="promo" placeholder="Promo Code - If you have one -">
             </div>
-            <button type="submit" id="registerBtn" class="submit-btn">Register & Pay</button>
-        </form>
+            <a href="{% url 'start_payment' %}" >     
+                <button type="submit" class="submit-btn">Register & Pay</button>
+            </a>
+                    </form>
         
 
         
@@ -579,7 +581,7 @@
 
 
 </script>
-
+<!--
 <script>
     document.getElementById("registrations").addEventListener("submit", function(event) {
         event.preventDefault();  // Stop normal form submission
@@ -599,7 +601,7 @@
         })
         .catch(error => console.error("Error:", error));
     });
-    </script>
+    </script>-->
     
     
     
